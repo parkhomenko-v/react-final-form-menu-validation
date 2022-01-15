@@ -12,40 +12,13 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import CheckOutline from '@mui/icons-material/CheckCircleOutline';
 import ErrorOutline from '@mui/icons-material/ErrorOutline';
+import FormLayout from './components/FormLayout';
+import FieldLayout from './components/FieldLayout';
 import reportWebVitals from './reportWebVitals';
 
 const drawerWidth = 240;
 const handleSubmit = (values) => {
   console.log(values);
-};
-const FormLayout = (props) => (
-  <form onSubmit={props.handleSubmit}>
-    {props.children}
-  </form>
-);
-const FieldLayout = (props) => {
-  const id = React.useRef(Math.random().toString(36).substr(2, 9));
-  const {innerComponent, children, input, meta, ...rest} = props;
-  const error = meta.error || meta.submitError;
-  const showError = Boolean(error);
-
-  return React.createElement(
-    innerComponent,
-    {
-      id: id.current,
-      name: input.name,
-      onBlur: input.onBlur,
-      onFocus: input.onFocus,
-      onChange: input.onChange,
-      value: input.value,
-      label: rest.label,
-      variant: "outlined",
-      fullWidth: true,
-      helperText: showError ? error : undefined,
-      error: showError
-    },
-    children
-  )
 };
 const validate = (values) => {
   const errors = {};
