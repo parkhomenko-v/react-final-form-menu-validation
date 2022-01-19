@@ -27,6 +27,30 @@ function FormContent(props) {
         component={FieldLayout}
         innerComponent={TextField}
       />
+      <Field
+        name="label"
+        label="Label"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="contacts.phone"
+        label="Phone"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="contacts.email"
+        label="Email"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="contacts.skype"
+        label="Skype"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
       <Button
         type="submit"
         variant="contained"
