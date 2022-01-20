@@ -51,6 +51,18 @@ function FormContent(props) {
         component={FieldLayout}
         innerComponent={TextField}
       />
+      <Field
+        name="extra.resources"
+        label="Resources"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="extra.comments"
+        label="Comments"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
       <Button
         type="submit"
         variant="contained"
