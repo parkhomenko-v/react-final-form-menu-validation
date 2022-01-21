@@ -52,6 +52,30 @@ function FormContent(props) {
         innerComponent={TextField}
       />
       <Field
+        name="contacts.address.country"
+        label="Email"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="contacts.address.city"
+        label="Email"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="contacts.address.street"
+        label="Email"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
+        name="contacts.address.house"
+        label="Email"
+        component={FieldLayout}
+        innerComponent={TextField}
+      />
+      <Field
         name="extra.resources"
         label="Resources"
         component={FieldLayout}
