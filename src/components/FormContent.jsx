@@ -53,25 +53,25 @@ function FormContent(props) {
       />
       <Field
         name="contacts.address.country"
-        label="Email"
+        label="Country"
         component={FieldLayout}
         innerComponent={TextField}
       />
       <Field
         name="contacts.address.city"
-        label="Email"
+        label="City"
         component={FieldLayout}
         innerComponent={TextField}
       />
       <Field
         name="contacts.address.street"
-        label="Email"
+        label="Street"
         component={FieldLayout}
         innerComponent={TextField}
       />
       <Field
         name="contacts.address.house"
-        label="Email"
+        label="House"
         component={FieldLayout}
         innerComponent={TextField}
       />
