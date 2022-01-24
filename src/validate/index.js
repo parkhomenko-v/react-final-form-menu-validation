@@ -10,6 +10,7 @@ function validate(values) {
   }
 
   errors.contacts = validateContacts(values.contacts);
+  errors.extra = validateExtra(values.extra);
 
   return errors;
 }
@@ -41,6 +42,16 @@ function validateAddress(values = {}) {
 
   if (!values.city) {
     errors.city = 'Field is required'
+  }
+
+  return errors;
+}
+
+function validateExtra(values = {}) {
+  const errors = {};
+
+  if (!values.resources) {
+    errors.resources = 'Field is required'
   }
 
   return errors;
