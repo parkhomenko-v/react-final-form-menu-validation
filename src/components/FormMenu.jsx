@@ -27,24 +27,29 @@ export const config = [
 ];
 
 function FormMenu(props) {
+  const styles = {
+    root: {
+      width: `${props.drawerWidth}px`
+    },
+    drawer: {
+      display: "block",
+      width: props.drawerWidth,
+      '& .MuiDrawer-paper': {
+        boxSizing: 'border-box',
+        width: props.drawerWidth
+      }
+    }
+  };
+
   return (
     <Box
       component="nav"
-      sx={{
-        width: `${props.drawerWidth}px`
-      }}
+      sx={styles.root}
     >
       <Drawer
         variant="permanent"
         open
-        sx={{
-          display: "block",
-          width: props.drawerWidth,
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: props.drawerWidth
-          }
-        }}
+        sx={styles.drawer}
       >
         <List>
           {config.map((item, index) => (
