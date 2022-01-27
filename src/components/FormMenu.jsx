@@ -80,7 +80,7 @@ function FormMenuItem(props) {
       selected={props.active}
     >
       <ListItemIcon>
-        {props.index === 0 && <ErrorOutline color="error" /* color="success" *//>}
+        {props.erroneous && <ErrorOutline color="error" />}
       </ListItemIcon>
       <ListItemText>
         {props.item.label}
