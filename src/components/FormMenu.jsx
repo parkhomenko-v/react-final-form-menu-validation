@@ -55,6 +55,7 @@ function FormMenu(props) {
           {config.map((item, index) => (
             <FormMenuItem
               key={index}
+              erroneous={index === 1}
               item={item}
               index={index}
               onChange={props.onChange}
