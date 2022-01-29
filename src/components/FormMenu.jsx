@@ -57,7 +57,6 @@ function FormMenu(props) {
               key={index}
               erroneous={index === 1}
               item={item}
-              index={index}
               onChange={props.onChange}
               active={props.group === item.group}
             />
