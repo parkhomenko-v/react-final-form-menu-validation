@@ -1,7 +1,7 @@
 import React from "react";
+import {Field} from "react-final-form";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,12 +10,12 @@ import Box from "@mui/material/Box";
 
 export const config = [
   {
-    names: [],
+    names: ["firstName", "lastName"],
     group: 'information',
     label: 'Information'
   },
   {
-    names: [],
+    names: ["contacts.phone", "contacts.email", "contacts.address"],
     group: 'contacts',
     label: 'Contacts'
   },
@@ -53,12 +53,13 @@ function FormMenu(props) {
       >
         <List>
           {config.map((item, index) => (
-            <FormMenuItem
+            <RecurseField
               key={index}
-              erroneous={index === 1}
-              item={item}
-              onChange={props.onChange}
+              names={item.names}
+              group={item.group}
+              label={item.label}
               active={props.group === item.group}
+              onChange={props.onChange}
             />
           ))}
         </List>
@@ -69,9 +70,45 @@ function FormMenu(props) {
 
 export default FormMenu;
 
+function RecurseField(props) {
+  if (!props.names.length) {
+    return (
+      <FormMenuItem
+        erroneous={props.erroneous}
+        group={props.group}
+        label={props.label}
+        active={props.active}
+        onChange={props.onChange}
+      />
+    );
+  }
+
+  const [name, ...rest] = props.names;
+
+  return (
+    <Field name={name}>
+      {({meta}) => {
+        const submitError = !meta.dirtySinceLastSubmit && meta.submitError;
+        const error = Boolean(meta.error || submitError);
+
+        return (
+          <RecurseField
+            names={rest}
+            group={props.group}
+            label={props.label}
+            active={props.active}
+            onChange={props.onChange}
+            erroneous={error ? props.erroneous || error : props.erroneous}
+          />
+        );
+      }}
+    </Field>
+  );
+}
+
 function FormMenuItem(props) {
   const handleChange = () => {
-    props.onChange(props.item.group);
+    props.onChange(props.group);
   };
 
   return (
@@ -83,7 +120,7 @@ function FormMenuItem(props) {
         {props.erroneous && <ErrorOutline color="error" />}
       </ListItemIcon>
       <ListItemText>
-        {props.item.label}
+        {props.label}
       </ListItemText>
     </ListItemButton>
   );
