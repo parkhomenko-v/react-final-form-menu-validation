@@ -20,7 +20,7 @@ export const config = [
     label: 'Contacts'
   },
   {
-    names: [],
+    names: ["extra.resources"],
     group: 'extra',
     label: 'Extra'
   }
