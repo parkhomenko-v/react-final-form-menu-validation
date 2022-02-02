@@ -7,18 +7,18 @@ import Box from "@mui/material/Box";
 import {config} from "./FormMenu";
 
 function FormContent(props) {
+  const styles = {
+    width: `calc(100% - ${props.drawerWidth}px)`,
+    padding: "24px",
+    '& .MuiTextField-root': { marginBottom: "24px" }
+  };
+
   return (
     <Box
       component="main"
-      sx={{
-        width: `calc(100% - ${props.drawerWidth}px)`,
-        padding: "24px",
-        '& .MuiTextField-root': { marginBottom: "24px" }
-      }}
+      sx={styles}
     >
-      <TabItem
-        active={props.group === config[0].group}
-      >
+      <TabItem active={props.group === config[0].group}>
         <Field
           name="firstName"
           label="First name"
@@ -38,9 +38,7 @@ function FormContent(props) {
           innerComponent={TextField}
         />
       </TabItem>
-      <TabItem
-        active={props.group === config[1].group}
-      >
+      <TabItem active={props.group === config[1].group}>
         <Field
           name="contacts.phone"
           label="Phone"
@@ -84,9 +82,7 @@ function FormContent(props) {
           innerComponent={TextField}
         />
       </TabItem>
-      <TabItem
-        active={props.group === config[2].group}
-      >
+      <TabItem active={props.group === config[2].group}>
         <Field
           name="extra.resources"
           label="Resources"

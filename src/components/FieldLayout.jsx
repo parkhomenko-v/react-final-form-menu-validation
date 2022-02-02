@@ -1,6 +1,6 @@
 import React from "react";
 
-const FieldLayout = (props) => {
+function FieldLayout(props) {
   const id = React.useRef(Math.random().toString(36).substr(2, 9));
   const {innerComponent, children, input, meta, ...rest} = props;
   const error = meta.error || meta.submitError;
@@ -23,6 +23,6 @@ const FieldLayout = (props) => {
     },
     children
   )
-};
+}
 
 export default FieldLayout;
