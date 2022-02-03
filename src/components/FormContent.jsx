@@ -19,6 +19,7 @@ function FormContent(props) {
       sx={styles}
     >
       <TabItem active={props.group === config[0].group}>
+        <h2>Base information</h2>
         <Field
           name="firstName"
           label="First name"
@@ -39,24 +40,28 @@ function FormContent(props) {
         />
       </TabItem>
       <TabItem active={props.group === config[1].group}>
+        <h2>Phone</h2>
         <Field
           name="contacts.phone"
           label="Phone"
           component={FieldLayout}
           innerComponent={TextField}
         />
+        <h2>Email</h2>
         <Field
           name="contacts.email"
           label="Email"
           component={FieldLayout}
           innerComponent={TextField}
         />
+        <h2>Skype</h2>
         <Field
           name="contacts.skype"
           label="Skype"
           component={FieldLayout}
           innerComponent={TextField}
         />
+        <h2>Address</h2>
         <Field
           name="contacts.address.country"
           label="Country"
@@ -83,6 +88,7 @@ function FormContent(props) {
         />
       </TabItem>
       <TabItem active={props.group === config[2].group}>
+        <h2>Extra information</h2>
         <Field
           name="extra.resources"
           label="Resources"
