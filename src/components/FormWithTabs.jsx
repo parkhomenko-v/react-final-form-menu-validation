@@ -9,6 +9,9 @@ import FormLayout from './FormLayout';
 const drawerWidth = 240;
 
 function FormWithTabs() {
+  const styles = {
+    display: 'flex'
+  };
   const [group, setGroup] = useState(config[0].group);
   const changeGroup = (newGroup) => {
     setGroup(newGroup);
@@ -23,7 +26,7 @@ function FormWithTabs() {
       component={FormLayout}
       validate={validate}
     >
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={styles}>
         <FormMenu
           drawerWidth={drawerWidth}
           onChange={changeGroup}

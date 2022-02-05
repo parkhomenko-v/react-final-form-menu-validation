@@ -34,6 +34,7 @@ function FormMenu(props) {
     drawer: {
       display: "block",
       width: props.drawerWidth,
+
       '& .MuiDrawer-paper': {
         boxSizing: 'border-box',
         width: props.drawerWidth

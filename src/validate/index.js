@@ -1,12 +1,14 @@
+const ERROR_MESSAGE = "Field is required";
+
 function validate(values) {
   const errors = {};
 
   if (!values.firstName) {
-    errors.firstName = 'Field is required'
+    errors.firstName = ERROR_MESSAGE;
   }
 
   if (!values.lastName) {
-    errors.lastName = 'Field is required'
+    errors.lastName = ERROR_MESSAGE;
   }
 
   errors.contacts = validateContacts(values.contacts);
@@ -21,11 +23,11 @@ function validateContacts(values = {}) {
   const errors = {};
 
   if (!values.phone) {
-    errors.phone = 'Field is required'
+    errors.phone = ERROR_MESSAGE;
   }
 
   if (!values.email) {
-    errors.email = 'Field is required'
+    errors.email = ERROR_MESSAGE;
   }
 
   errors.address = validateAddress(values.address);
@@ -37,11 +39,11 @@ function validateAddress(values = {}) {
   const errors = {};
 
   if (!values.country) {
-    errors.country = 'Field is required'
+    errors.country = ERROR_MESSAGE;
   }
 
   if (!values.city) {
-    errors.city = 'Field is required'
+    errors.city = ERROR_MESSAGE;
   }
 
   return errors;
@@ -51,7 +53,7 @@ function validateExtra(values = {}) {
   const errors = {};
 
   if (!values.resources) {
-    errors.resources = 'Field is required'
+    errors.resources = ERROR_MESSAGE;
   }
 
   return errors;
